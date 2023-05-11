@@ -31,7 +31,8 @@ documentation.
 
 To use `code-block` add below lines into your FASTN.ftd file:
 
-To learn more about code-block [click here](/docs/).
+To learn more about code-block 
+[click here](https://fastn-community.github.io/code-block/docs/).
 
 -- code:
 lang: ftd

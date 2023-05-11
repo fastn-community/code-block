@@ -15,11 +15,11 @@ site-title: Code Block
 
 -- site-doc.header: What is a Code Block?
 
-A code block is a piece of source code that demonstrates how to use a particular
-feature, function, or library in fastn language. Code blocks are used to
-illustrate the syntax and usage of fastn language and are often included in
-documentation, tutorials to help fastn-builders understand how to use a
-particular piece of code.
+A code block is a piece of source code that demonstrates how to use a
+particular feature, function, or library in a programming language. Code
+block are used to illustrate the syntax and usage of specific programming
+constructs and are often included in documentation, tutorials, and online
+forums to help developers understand how to use a particular piece of code.
 
 -- site-doc.header: How to install fastn?
 

@@ -1,51 +1,371 @@
+-- import: fastn
 -- import: fastn-community.github.io/code-block/assets
+-- import: fastn-community.github.io/site-doc
 
 
 
--- ds.page: Welcome to your [FASTN site](https://fastn.io/)
+
+-- site-doc.doc-home: Code-Block
+github-url: https://github.com/fastn-community/code-block
+color-scheme: \$ftd.default-colors
+typography: \$ftd.default-types
+current-package: fastn-community.github.io/code-block
+show-tabs: false
+site-title: Code Block
+
+-- site-doc.header: What is a Code Block?
+
+A code block is a piece of source code that demonstrates how to use a particular
+feature, function, or library in fastn language. Code blocks are used to
+illustrate the syntax and usage of fastn language and are often included in
+documentation, tutorials to help fastn-builders understand how to use a
+particular piece of code.
+
+-- site-doc.header: How to install fastn?
+
+Please, [click here](https://fastn.io/install/) to read fastn installation
+documentation.
+
+
+-- site-doc.header: How to use `code-block`?
+
+To use `code-block` add below lines into your FASTN.ftd file:
+
+To learn more about code-block [click here](/docs/).
+
+-- code:
+lang: ftd
+
+\-- fastn.dependency: fastn-community.github.io/code-block
+
+-- end: site-doc.doc-home
+
+
+
+
+
+
+-- void download-text(filename,text):
+string filename:
+string text:
+
+download_text(filename, text)
+
+
+
+
+
+
+
+
+
+
+
+
+-- component code:
+optional caption caption:
+optional string download:
+body body:
+string lang:
+boolean copy: true
+string $copy-text: null
+boolean $copy-mouse-in: false
+boolean $download-mouse-in: false
+boolean $mouse-in: false
+optional ftd.resizing max-height:
+optional ftd.resizing max-width:
+string clean-code: $ftd.clean-code(a = $code.body, lang = $code.lang)
 
 -- ftd.column:
-align-self: center
+padding-bottom.px: 12
+padding-top.px: 12
+width: fill-container
+$on-mouse-enter$: $ftd.set-bool($a = $code.mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $code.mouse-in, v = false)
+cursor: default
+overflow-y: auto
 
--- chat.message-left: Yo! I am Amit Upadhyay, CEO of FifthTry, welcome to the new world of FTD.
+-- ftd.row:
+if: { code.caption != NULL || code.download != NULL || code.copy }
+width: fill-container
+background.solid: $inherited.colors.background.step-1
+padding-top.px if { code.caption != NULL }: 10
+padding-bottom.px if { code.caption != NULL }: 10
+padding-left.px if { code.caption != NULL }: 20
+padding-right.px if { code.caption != NULL }: 20
+border-top-left-radius.px: 4
+border-top-right-radius.px: 4
+max-width.fixed.px if { code.max-width != NULL }: $code.max-width
 
--- ds.markdown: 
+-- ftd.text: $code.caption
+if: { code.caption != NULL }
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+align-self: start
+width: fill-container
 
-You reached the right place, and from here let me assure you, your FTD journey is going superfast. 🙂
+-- ftd.row:
+if: { code.copy }
+spacing.fixed.px: 10
+align-content: right
+align-self: end
+$on-mouse-leave$: $ftd.set-string($a = $code.copy-text, v = null)
+anchor: parent
+top.px: 12
+right.px: 20
+right.px if { code.download != NULL }: 56
 
--- end: chat.message-left
+-- ftd.image:
+if: { code.copy-text == "null" && code.mouse-in }
+src: $assets.files.static.copy.svg
+src if { code.copy-mouse-in }: $assets.files.static.copy-hover.svg
+$on-mouse-enter$: $ftd.set-bool($a = $code.copy-mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $code.copy-mouse-in, v = false)
+$on-click$: $ftd.copy-to-clipboard(a = $code.clean-code)
+$on-click$: $ftd.set-string($a = $code.copy-text, v = Copied!)
+width.fixed.px: 18
 
--- chat.message-right:  😊 Liking this chat component?
+-- ftd.image:
+if: { code.copy-text != "null" }
+src: $assets.files.static.tick.svg
+width.fixed.px: 18
 
--- ds.markdown:
+-- ftd.text: $code.copy-text
+if: { code.copy-text != "null" }
+role: $inherited.types.copy-regular
+color: $inherited.colors.border
 
-[Click here to learn more](https://fifthtry.github.io/bling/chat/)
-👍
+-- end: ftd.row
 
--- end: chat.message-right
+-- ftd.image:
+if: { code.download != NULL && code.mouse-in }
+src: $assets.files.static.download.svg
+src if { code.download-mouse-in }: $assets.files.static.download-hover.svg
+width.fixed.px: 20
+height.fixed.px: 20
+align-self: end
+anchor: parent
+top.px: 12
+right.px: 20
+$on-mouse-enter$: $ftd.set-bool($a = $code.download-mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $code.download-mouse-in, v = false)
+$on-click$: $download-text(filename = $code.download, text = $code.clean-code)
+
+-- end: ftd.row
+
+-- ftd.code:
+if: { ftd.dark-mode }
+text: $code.body
+lang: $code.lang
+width: fill-container
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+background.solid: $inherited.colors.background.code
+border-top-left-radius.px if { code.caption == NULL }: 4
+border-top-right-radius.px if { code.caption == NULL }: 4
+border-bottom-left-radius.px if { code.caption == NULL }: 4
+border-bottom-right-radius.px if { code.caption == NULL }: 4
+overflow-x: auto
+overflow-y: auto
+max-height if { code.max-height != NULL }: $code.max-height
+max-width if { code.max-width != NULL }: $code.max-width
+
+-- ftd.code:
+if: { !ftd.dark-mode }
+text: $code.body
+lang: $code.lang
+width: fill-container
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+background.solid: $inherited.colors.background.code
+border-top-left-radius.px if { code.caption == NULL }: 4
+border-top-right-radius.px if { code.caption == NULL }: 4
+border-bottom-left-radius.px if { code.caption == NULL }: 4
+border-bottom-right-radius.px if { code.caption == NULL }: 4
+overflow-x: auto
+overflow-y: auto
+max-height if { code.max-height != NULL }: $code.max-height
+max-width if { code.max-width != NULL }: $code.max-width
+theme: fastn-theme.light
+
+-- ftd.column:
+if: { code.download != NULL }
+anchor: parent
+right.px: 0
+bottom.px: 12
+z-index: 999
+padding.px: 6
+border-bottom-right-radius.px: 4
+
+-- ftd.text: $code.download
+role: $inherited.types.fine-print
+color: $inherited.colors.text.dark
 
 -- end: ftd.column
 
--- ds.h1: How to use?
+-- end: ftd.column
 
-It's very simple like making a sandwich. Create new `.ftd` file and just say:
+-- end: code
 
--- ds.code: `-- ds.page` 
+
+
+
+
+
+
+
+
+
+-- component rendered:
+optional string download:
+optional caption title:
+body input:
+boolean copy: true
+string $copy-text: null
+boolean $copy-mouse-in: false
+boolean $download-mouse-in: false
+boolean $mouse-in: false
+optional ftd.resizing max-height:
+optional ftd.resizing max-width:
+ftd.ui list output:
+string clean-code: $ftd.clean-code(a = $rendered.input, lang = ftd)
+
+-- ftd.column:
+width: fill-container
+padding-bottom.em: 0.8
+
+-- ftd.text: $rendered.title
+if: { rendered.title != NULL }
+role: $inherited.types.heading-tiny
+color: $inherited.colors.text-strong
+margin-bottom.em: 0.2
+
+-- ftd.text: Input
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+width: fill-container
+border-color: $inherited.colors.border
+border-bottom-width.px: 1
+text-align: end
+
+-- ftd.column:
+width: fill-container
+$on-mouse-enter$: $ftd.set-bool($a = $rendered.mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $rendered.mouse-in, v = false)
+cursor: default
+overflow-y: auto
+
+-- ftd.row:
+if: { rendered.copy }
+spacing.fixed.px: 10
+align-content: right
+align-self: end
+$on-mouse-leave$: $ftd.set-string($a = $rendered.copy-text, v = null)
+anchor: parent
+top.px: 12
+right.px: 20
+right.px if { rendered.download != NULL }: 56
+
+-- ftd.image:
+if: { rendered.copy-text == "null" && rendered.mouse-in }
+src: $assets.files.static.copy.svg
+src if { rendered.copy-mouse-in }: $assets.files.static.copy-hover.svg
+$on-mouse-enter$: $ftd.set-bool($a = $rendered.copy-mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $rendered.copy-mouse-in, v = false)
+$on-click$: $ftd.copy-to-clipboard(a = $rendered.clean-code)
+$on-click$: $ftd.set-string($a = $rendered.copy-text, v = Copied!)
+width.fixed.px: 18
+
+-- ftd.image:
+if: { rendered.copy-text != "null" }
+src: $assets.files.static.tick.svg
+width.fixed.px: 18
+
+-- ftd.text: $rendered.copy-text
+if: { rendered.copy-text != "null" }
+role: $inherited.types.copy-regular
+color: $inherited.colors.border
+
+-- end: ftd.row
+
+-- ftd.image:
+if: { rendered.download != NULL && rendered.mouse-in }
+src: $assets.files.static.download.svg
+src if { rendered.download-mouse-in }: $assets.files.static.download-hover.svg
+width.fixed.px: 20
+height.fixed.px: 20
+align-self: end
+anchor: parent
+top.px: 12
+right.px: 20
+$on-mouse-enter$: $ftd.set-bool($a = $rendered.download-mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $rendered.download-mouse-in, v = false)
+$on-click$: $download-text(filename = $rendered.download, text = $rendered.clean-code)
+
+-- ftd.code:
+if: { ftd.dark-mode }
+text: $rendered.input
 lang: ftd
+width: fill-container
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+background.solid: $inherited.colors.background.code
+border-bottom-left-radius.px: 4
+border-bottom-right-radius.px: 4
+overflow-x: auto
+overflow-y: auto
+max-height if { rendered.max-height != NULL }: $rendered.max-height
+max-width if { rendered.max-width != NULL }: $rendered.max-width
 
-\-- ds.page: Your page title goes here
+-- ftd.code:
+if: { !ftd.dark-mode }
+text: $rendered.input
+lang: ftd
+width: fill-container
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+background.solid: $inherited.colors.background.code
+border-bottom-left-radius.px: 4
+border-bottom-right-radius.px: 4
+overflow-x: auto
+overflow-y: auto
+max-height if { rendered.max-height != NULL }: $rendered.max-height
+max-width if { rendered.max-width != NULL }: $rendered.max-width
+theme: fastn-theme.light
 
-Your page content goes here.
+-- ftd.column:
+if: { rendered.download != NULL }
+anchor: parent
+right.px: 0
+bottom.px: 0
+z-index: 999
+padding.px: 6
+border-bottom-right-radius.px: 4
 
+-- ftd.text: $rendered.download
+role: $inherited.types.fine-print
+color: $inherited.colors.text.dark
 
--- ds.h1: Need sidebar at right side of page?
+-- end: ftd.column
 
-Here it is, [use this document](https://fifthtry.github.io/doc-site/docs/right-sidebar/).
+-- end: ftd.column
 
+-- ftd.text: Output
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+border-bottom-width.px: 1
+width: fill-container
+border-color: $inherited.colors.border
+margin-top.px: 8
+text-align: end
 
--- ds.h1: 👀 Learn FTD and become a pro?
+-- ftd.column:
+width: fill-container
+children: $rendered.output
+background.solid: $inherited.colors.background.step-1
 
-You are one click away, just check [our documentation](https://fastn.dev/) and 
-dont forget to jump into our [FifthTry Discord server](https://discord.gg/bucrdvptYd).
+-- end: ftd.column
 
--- end: ds.page
+-- end: ftd.column
+
+-- end: rendered

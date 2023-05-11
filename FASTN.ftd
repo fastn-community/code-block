@@ -2,8 +2,17 @@
 
 -- fastn.package: fastn-community.github.io/code-block
 
--- fastn.dependency: fifthtry.github.io/doc-site as ds
--- fastn.dependency: fifthtry.github.io/bling as bling
+-- fastn.dependency: fastn-community.github.io/site-doc
 
--- fastn.auto-import: bling/chat as chat
--- fastn.auto-import: ds
+
+
+
+-- fastn.sitemap:
+
+# Home: index.html
+
+- Code Block: /code/
+- Rendered Code Block: /rendered/
+
+# GitHub
+  url: https://github.com/fastn-community/code-block

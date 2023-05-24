@@ -5,7 +5,7 @@
 
 
 
--- site-doc.doc-home: Code-Block
+-- site-doc.doc-home: fastn package: Code-Block
 github-url: https://github.com/fastn-community/code-block
 color-scheme: \$ftd.default-colors
 typography: \$ftd.default-types

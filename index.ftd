@@ -6,12 +6,22 @@
 
 
 -- site-doc.doc-home: fastn package: Code-Block
-github-url: https://github.com/fastn-community/code-block
-color-scheme: \$ftd.default-colors
-typography: \$ftd.default-types
+license-url: https://github.com/fastn-community/code-block/blob/main/LICENSE
 current-package: fastn-community.github.io/code-block
 show-tabs: false
 site-title: Code Block
+
+-- site-doc.output:
+
+-- code:
+lang: ftd
+download: sample.ftd
+
+\-- ftd.text: Hello World
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- end: site-doc.output
 
 -- site-doc.header: What is a Code Block?
 
@@ -21,18 +31,13 @@ block are used to illustrate the syntax and usage of specific programming
 constructs and are often included in documentation, tutorials, and online
 forums to help developers understand how to use a particular piece of code.
 
--- site-doc.header: How to install fastn?
-
-Please, [click here](https://fastn.io/install/) to read fastn installation
-documentation.
-
 
 -- site-doc.header: How to use `code-block`?
 
 To use `code-block` add below lines into your FASTN.ftd file:
 
 To learn more about code-block 
-[click here](https://fastn-community.github.io/code-block/docs/).
+[click here](code/).
 
 -- code:
 lang: ftd

@@ -11,8 +11,12 @@
 
 # Home: index.html
 
-- Code Block: /code/
-- Rendered Code Block: /rendered/
+- Code-Block Overview: index.html
+- Documentation: /docs/
+
+- Examples: /docs/code/
+  - Code Block: /docs/code/
+  - Rendered Code Block: /docs/rendered/
 
 # GitHub
   url: https://github.com/fastn-community/code-block

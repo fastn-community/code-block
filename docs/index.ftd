@@ -6,7 +6,7 @@
 
 
 -- site-doc.doc-home: Documentation
-site-title: Header
+site-title: Code Block
 show-tabs: false
 
 -- site-doc.component-doc: `code-block`

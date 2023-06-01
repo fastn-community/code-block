@@ -195,7 +195,7 @@ download: example.ftd
 -- cb.rendered.input:
 
 \-- cb.rendered: 
-copy: false
+download: example.ftd
 
 \-- cb.rendered.input:
 
@@ -216,7 +216,7 @@ color: $inherited.colors.custom.nine
 -- cb.rendered.output:
 
 -- cb.rendered: 
-copy: false
+download: example.ftd
 
 -- cb.rendered.input:
 

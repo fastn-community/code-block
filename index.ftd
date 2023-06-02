@@ -34,7 +34,7 @@ forums to help developers understand how to use a particular piece of code.
 
 -- site-doc.header: How to use `code-block`?
 
-To use `code-block` add below lines into your FASTN.ftd file:
+To use `code-block` add below lines into your FASTN.ftd document:
 
 To learn more about code-block [click here](docs/).
 

@@ -17,7 +17,7 @@ info: `-- code` can be used as code-block inside your fastn web projects.
 Code blocks are typically defined by using specific syntax or indentation rules,
 depending on the programming language.
 
-**Note:** The `code` component is already included within thedoc-site.
+**Note:** The `code` component is already included within the doc-site.
   Therefore, if you are utilizing [`doc-site`](https://fastn-community.github.io/doc-site/),
    there is no need to include the code-block as a fastn dependency. 
 
@@ -64,7 +64,7 @@ lang: ftd
 
 \-- fastn.dependency: fastn-community.github.io/code-block
 
--- cb.code: Import `code-block` into your `.ftd` file
+-- cb.code: Import `code-block` into your `.ftd` document
 lang: ftd
 
 \-- import: fastn-community.github.io/code-block as cb

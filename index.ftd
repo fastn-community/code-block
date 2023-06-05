@@ -204,7 +204,7 @@ border-bottom-right-radius.px: 4
 
 -- ftd.text: $code.download
 role: $inherited.types.fine-print
-color: $inherited.colors.text.dark
+color: $inherited.colors.text
 
 -- end: ftd.column
 
@@ -349,7 +349,7 @@ border-bottom-right-radius.px: 4
 
 -- ftd.text: $rendered.download
 role: $inherited.types.fine-print
-color: $inherited.colors.text.dark
+color: $inherited.colors.text
 
 -- end: ftd.column
 

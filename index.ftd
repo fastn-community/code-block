@@ -71,7 +71,7 @@ download_text(filename, text)
 optional caption caption:
 optional string download:
 body body:
-string lang:
+string lang: ftd
 boolean copy: true
 string $copy-text: null
 boolean $copy-mouse-in: false
@@ -194,17 +194,36 @@ max-width if { code.max-width != NULL }: $code.max-width
 theme: fastn-theme.light
 
 -- ftd.column:
-if: { code.download != NULL }
+if: { code.lang != NULL }
 anchor: parent
-right.px: 0
+right.px: 12
 bottom.px: 12
 z-index: 999
 padding.px: 6
 border-bottom-right-radius.px: 4
 
+-- ftd.row:
+spacing.fixed.px: 16
+
 -- ftd.text: $code.download
+if: { code.download != NULL }
 role: $inherited.types.fine-print
 color: $inherited.colors.text
+
+-- ftd.row:
+spacing.fixed.px: 4
+
+-- ftd.text: Lang:
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+
+-- ftd.text: $code.lang
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+
+-- end: ftd.row
+
+-- end: ftd.row
 
 -- end: ftd.column
 
@@ -251,7 +270,7 @@ color: $inherited.colors.text
 width: fill-container
 border-color: $inherited.colors.border
 border-bottom-width.px: 1
-text-align: end
+padding-bottom.px: 8
 
 -- ftd.column:
 width: fill-container
@@ -339,17 +358,35 @@ max-width if { rendered.max-width != NULL }: $rendered.max-width
 theme: fastn-theme.light
 
 -- ftd.column:
-if: { rendered.download != NULL }
 anchor: parent
-right.px: 0
-bottom.px: 0
+right.px: 12
+bottom.px: 12
 z-index: 999
 padding.px: 6
 border-bottom-right-radius.px: 4
 
+-- ftd.row:
+spacing.fixed.px: 16
+
 -- ftd.text: $rendered.download
+if: { rendered.download != NULL }
 role: $inherited.types.fine-print
 color: $inherited.colors.text
+
+-- ftd.row:
+spacing.fixed.px: 4
+
+-- ftd.text: Lang:
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+
+-- ftd.text: ftd
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+
+-- end: ftd.row
+
+-- end: ftd.row
 
 -- end: ftd.column
 
@@ -362,7 +399,7 @@ border-bottom-width.px: 1
 width: fill-container
 border-color: $inherited.colors.border
 margin-top.px: 8
-text-align: end
+padding-bottom.px: 8
 
 -- ftd.column:
 width: fill-container

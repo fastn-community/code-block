@@ -174,6 +174,7 @@ overflow-x: auto
 overflow-y: auto
 max-height if { code.max-height != NULL }: $code.max-height
 max-width if { code.max-width != NULL }: $code.max-width
+padding-bottom.px: 24
 
 -- ftd.code:
 if: { !ftd.dark-mode }
@@ -192,6 +193,7 @@ overflow-y: auto
 max-height if { code.max-height != NULL }: $code.max-height
 max-width if { code.max-width != NULL }: $code.max-width
 theme: fastn-theme.light
+padding-bottom.px: 24
 
 -- ftd.column:
 if: { code.lang != NULL }
@@ -340,6 +342,7 @@ overflow-x: auto
 overflow-y: auto
 max-height if { rendered.max-height != NULL }: $rendered.max-height
 max-width if { rendered.max-width != NULL }: $rendered.max-width
+padding-bottom.px: 24
 
 -- ftd.code:
 if: { !ftd.dark-mode }
@@ -356,6 +359,7 @@ overflow-y: auto
 max-height if { rendered.max-height != NULL }: $rendered.max-height
 max-width if { rendered.max-width != NULL }: $rendered.max-width
 theme: fastn-theme.light
+padding-bottom.px: 24
 
 -- ftd.column:
 anchor: parent

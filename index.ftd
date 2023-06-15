@@ -408,7 +408,6 @@ padding-bottom.px: 8
 -- ftd.column:
 width: fill-container
 children: $rendered.output
-background.solid: $inherited.colors.background.step-1
 
 -- end: ftd.column
 

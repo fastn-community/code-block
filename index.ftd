@@ -71,6 +71,7 @@ download_text(filename, text)
 optional caption caption:
 optional string download:
 body body:
+string text: $code.body
 string lang: ftd
 boolean copy: true
 string $copy-text: null
@@ -79,7 +80,7 @@ boolean $download-mouse-in: false
 boolean $mouse-in: false
 optional ftd.resizing max-height:
 optional ftd.resizing max-width:
-string clean-code: $ftd.clean-code(a = $code.body, lang = $code.lang)
+string clean-code: $ftd.clean-code(a = $code.text, lang = $code.lang)
 
 -- ftd.column:
 padding-bottom.px: 12

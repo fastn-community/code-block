@@ -11,7 +11,7 @@
 
 # Home: index.html
 
-- Code-Block Overview: index.html
+- Overview: index.html
 - Documentation: /docs/
 
 - Examples: /docs/code/
@@ -19,6 +19,3 @@
   - Rendered Code Block: /docs/rendered/
 
 - Contribute: contribute/
-
-# GitHub
-  url: https://github.com/fastn-community/code-block

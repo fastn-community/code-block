@@ -8,6 +8,7 @@
 -- site-doc.doc-home: Documentation
 site-title: Code Block
 show-tabs: false
+github-url: https://github.com/fastn-community/code-block
 
 -- site-doc.component-doc: `code-block`
 package-link: https://fastn-community.github.io/code-block

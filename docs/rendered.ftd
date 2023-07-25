@@ -7,6 +7,7 @@
 
 -- site-doc.doc-home: Rendered Code Block
 site-title: Code Block
+github-url: https://github.com/fastn-community/code-block
 
 -- cb.code:
 lang: ftd

@@ -82,6 +82,7 @@ boolean $mouse-in: false
 optional ftd.resizing max-height:
 optional ftd.resizing max-width:
 string clean-code: $ftd.clean-code(a = $code.text, lang = $code.lang)
+boolean line-numbers: false
 
 -- ftd.column:
 padding-bottom.px: 12
@@ -177,6 +178,7 @@ overflow-y: auto
 max-height if { code.max-height != NULL }: $code.max-height
 max-width if { code.max-width != NULL }: $code.max-width
 padding-bottom.px: 24
+show-line-number if { code.line-numbers }: true
 
 -- ftd.code:
 if: { !ftd.dark-mode }
@@ -257,6 +259,7 @@ optional ftd.resizing max-height:
 optional ftd.resizing max-width:
 ftd.ui list output:
 string clean-code: $ftd.clean-code(a = $rendered.input, lang = ftd)
+boolean line-numbers: false
 
 -- ftd.column:
 width: fill-container
@@ -345,6 +348,7 @@ overflow-y: auto
 max-height if { rendered.max-height != NULL }: $rendered.max-height
 max-width if { rendered.max-width != NULL }: $rendered.max-width
 padding-bottom.px: 24
+show-line-number if { rendered.line-numbers }: true
 
 -- ftd.code:
 if: { !ftd.dark-mode }

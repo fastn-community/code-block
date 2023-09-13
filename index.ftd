@@ -162,7 +162,8 @@ $on-click$: $download-text(filename = $code.download, text = $code.clean-code)
 -- end: ftd.row
 
 -- ftd.code:
-if: { ftd.dark-mode }
+theme: fastn-theme.light
+theme if { ftd.dark-mode }: fastn-theme.dark
 text: $code.body
 lang: $code.lang
 width: fill-container
@@ -179,25 +180,6 @@ max-height if { code.max-height != NULL }: $code.max-height
 max-width if { code.max-width != NULL }: $code.max-width
 padding-bottom.px: 24
 show-line-number if { code.line-numbers }: true
-
--- ftd.code:
-if: { !ftd.dark-mode }
-text: $code.body
-lang: $code.lang
-width: fill-container
-role: $inherited.types.copy-regular
-color: $inherited.colors.text
-background.solid: $inherited.colors.background.code
-border-top-left-radius.px if { code.caption == NULL }: 4
-border-top-right-radius.px if { code.caption == NULL }: 4
-border-bottom-left-radius.px if { code.caption == NULL }: 4
-border-bottom-right-radius.px if { code.caption == NULL }: 4
-overflow-x: auto
-overflow-y: auto
-max-height if { code.max-height != NULL }: $code.max-height
-max-width if { code.max-width != NULL }: $code.max-width
-theme: fastn-theme.light
-padding-bottom.px: 24
 
 -- ftd.column:
 if: { code.lang != NULL }

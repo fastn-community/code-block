@@ -316,7 +316,8 @@ $on-mouse-leave$: $ftd.set-bool($a = $rendered.download-mouse-in, v = false)
 $on-click$: $download-text(filename = $rendered.download, text = $rendered.clean-code)
 
 -- ftd.code:
-if: { ftd.dark-mode }
+theme: fastn-theme.light
+theme if { ftd.dark-mode }: fastn-theme.dark
 text: $rendered.input
 lang: ftd
 width: fill-container
@@ -331,23 +332,6 @@ max-height if { rendered.max-height != NULL }: $rendered.max-height
 max-width if { rendered.max-width != NULL }: $rendered.max-width
 padding-bottom.px: 24
 show-line-number if { rendered.line-numbers }: true
-
--- ftd.code:
-if: { !ftd.dark-mode }
-text: $rendered.input
-lang: ftd
-width: fill-container
-role: $inherited.types.copy-regular
-color: $inherited.colors.text
-background.solid: $inherited.colors.background.code
-border-bottom-left-radius.px: 4
-border-bottom-right-radius.px: 4
-overflow-x: auto
-overflow-y: auto
-max-height if { rendered.max-height != NULL }: $rendered.max-height
-max-width if { rendered.max-width != NULL }: $rendered.max-width
-theme: fastn-theme.light
-padding-bottom.px: 24
 
 -- ftd.column:
 anchor: parent

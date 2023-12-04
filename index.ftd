@@ -1,6 +1,7 @@
 -- import: fastn
 -- import: fastn-community.github.io/code-block/assets
 -- import: fastn-community.github.io/site-doc
+-- import: fastn-stack.github.io/fastn-js/assets as js-assets
 
 
 
@@ -54,6 +55,7 @@ lang: ftd
 -- void download-text(filename,text):
 string filename:
 string text:
+js: $js-assets.files.download.js
 
 download_text(filename, text)
 
